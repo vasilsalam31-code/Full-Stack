@@ -1,181 +1,177 @@
-const products = [
-    {
-        name: "Smartphone 5G",
-        image: "images/smartphone.jpg",
-        price: 18999,
-        oldPrice: 24999,
-        discount: 24
-    },
-    {
-        name: "Wireless Headphones",
-        image: "images/headphones.jpg",
-        price: 1499,
-        oldPrice: 2999,
-        discount: 50
-    },
-    {
-        name: "Smart Watch Pro",
-        image: "images/smartwatch.jpg",
-        price: 2299,
-        oldPrice: 4999,
-        discount: 54
-    },
-    {
-        name: "Laptop Backpack",
-        image: "images/backpack.jpg",
-        price: 799,
-        oldPrice: 1599,
-        discount: 50
-    },
-    {
-        name: "Running Shoes",
-        image: "images/shoes.jpg",
-        price: 1299,
-        oldPrice: 2499,
-        discount: 48
-    },
-    {
-        name: "Men's Casual Shirt",
-        image: "images/shirt.jpg",
-        price: 699,
-        oldPrice: 1399,
-        discount: 50
-    },
-    {
-        name: "Bluetooth Speaker",
-        image: "images/speaker.jpg",
-        price: 999,
-        oldPrice: 1999,
-        discount: 50
-    },
-    {
-        name: "Gaming Laptop",
-        image: "images/laptop.jpg",
-        price: 57999,
-        oldPrice: 69999,
-        discount: 17
-    }
-];
-
-let cart = 0;
-
-const grid = document.getElementById("grid");
-
-// DISPLAY PRODUCTS
-function render(items) {
-
-    grid.innerHTML = items.map(product => `
-
-        <article class="card">
-
-            <div class="product-image">
-
-                <span class="discount">
-                    ${product.discount}% OFF
-                </span>
-
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                >
-
-            </div>
-
-            <h3>${product.name}</h3>
-
-            <div class="rating">
-                ⭐ 4.5 • VSKART Assured
-            </div>
-
-            <div class="price">
-
-                ₹${product.price.toLocaleString("en-IN")}
-
-                <del>
-                    ₹${product.oldPrice.toLocaleString("en-IN")}
-                </del>
-
-            </div>
-
-            <button onclick="addCart('${product.name}')">
-                Add to Cart
-            </button>
-
-        </article>
-
-    `).join("");
-}
+let cartCount = 0;
 
 
+// ============================
 // ADD TO CART
-function addCart(productName) {
+// ============================
 
-    cart++;
+function addToCart(productName) {
 
-    document.getElementById("count").textContent = cart;
+    cartCount++;
 
-    const toast = document.getElementById("toast");
+    document.getElementById("cartCount").innerText =
+        cartCount;
 
-    if (toast) {
+    showToast(productName + " added to cart");
 
-        toast.textContent =
-            productName + " added to cart!";
-
-        toast.classList.add("show");
-
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 1400);
-    }
 }
 
 
+// ============================
+// TOAST MESSAGE
+// ============================
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function () {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+
+// ============================
 // SEARCH PRODUCTS
+// ============================
+
 function searchProducts() {
 
-    const query =
-        document
-            .getElementById("search")
-            .value
-            .toLowerCase();
+    const input =
+        document.getElementById("searchInput");
 
-    const filteredProducts =
-        products.filter(product =>
-            product.name
-                .toLowerCase()
-                .includes(query)
-        );
+    const searchText =
+        input.value.toLowerCase().trim();
 
-    render(filteredProducts);
+    const products =
+        document.querySelectorAll(".product-card");
+
+
+    products.forEach(function (product) {
+
+        const productName =
+            product
+                .getAttribute("data-name")
+                .toLowerCase();
+
+        if (
+            productName.includes(searchText)
+            ||
+            searchText === ""
+        ) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
 
     document
         .getElementById("products")
         .scrollIntoView({
             behavior: "smooth"
         });
+
 }
 
 
-// SHOW ALL PRODUCTS
-function showAll() {
-
-    document.getElementById("search").value = "";
-
-    render(products);
-}
-
-
+// ============================
 // ENTER KEY SEARCH
-document
-    .getElementById("search")
-    .addEventListener("keydown", function(event) {
+// ============================
 
-        if (event.key === "Enter") {
-            searchProducts();
+const searchInput =
+    document.getElementById("searchInput");
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "keypress",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                searchProducts();
+
+            }
+
         }
+    );
+
+}
+
+
+// ============================
+// SHOW ALL PRODUCTS
+// ============================
+
+function showAllProducts() {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(function (product) {
+
+        product.style.display = "block";
 
     });
 
 
-// LOAD ALL PRODUCTS
-render(products);
+    document.getElementById("searchInput").value = "";
+
+}
+
+
+// ============================
+// NEWSLETTER
+// ============================
+
+function subscribe() {
+
+    const email =
+        document.getElementById("email").value.trim();
+
+
+    if (email === "") {
+
+        showToast(
+            "Please enter your email address"
+        );
+
+        return;
+
+    }
+
+
+    if (!email.includes("@")) {
+
+        showToast(
+            "Please enter a valid email address"
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        "Thank you for subscribing!"
+    );
+
+
+    document.getElementById("email").value = "";
+
+}

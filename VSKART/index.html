@@ -3,71 +3,798 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>VSKART | Online Shopping</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+
+    <!-- HEADER -->
     <header>
-        <div class="nav"><a class="logo" href="#">VS<span>KART</span><small>Shop Smart. Live Better.</small></a>
-            <div class="search"><input id="search" placeholder="Search for products, brands and more"><button
-                    onclick="searchProducts()">Search</button></div>
-            <nav><a href="#">Login</a><a href="#products">Products</a><a href="#">Orders</a><a href="#cart">🛒 Cart <b
-                        id="count">0</b></a></nav>
+
+        <div class="topbar">
+            <div class="container navbar">
+
+                <a href="#" class="logo">
+                    VSKART
+                    <span>Shop Smart. Live Better.</span>
+                </a>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for products, brands..."
+                    >
+
+                    <button onclick="searchProducts()">
+                        Search
+                    </button>
+                </div>
+
+                <div class="nav-actions">
+                    <a href="#">Login</a>
+                    <a href="#products">Products</a>
+                    <a href="#">Orders</a>
+
+                    <a href="#" class="cart">
+                        🛒 Cart
+                        <span id="cartCount">0</span>
+                    </a>
+                </div>
+
+            </div>
         </div>
+
+
+        <!-- CATEGORY BAR -->
+
+        <div class="category-bar">
+
+            <div class="container categories">
+
+                <a href="#products">📱 Mobiles</a>
+                <a href="#products">💻 Electronics</a>
+                <a href="#products">👕 Fashion</a>
+                <a href="#products">🏠 Home</a>
+                <a href="#products">📺 Appliances</a>
+                <a href="#products">🎧 Accessories</a>
+                <a href="#products">🧸 Toys</a>
+                <a href="#products">✈️ Travel</a>
+
+            </div>
+
+        </div>
+
     </header>
-    <section class="categories">
-        <div>📱<span>Mobiles</span></div>
-        <div>💻<span>Electronics</span></div>
-        <div>👕<span>Fashion</span></div>
-        <div>🏠<span>Home</span></div>
-        <div>📺<span>Appliances</span></div>
-        <div>⌚<span>Accessories</span></div>
-        <div>🧸<span>Toys</span></div>
-        <div>✈️<span>Travel</span></div>
-    </section>
-    <main>
-        <section class="hero">
-            <div>
-                <p class="tag">VSKART BIG SAVINGS</p>
-                <h1>Everything you need.<br><span>One smart cart.</span></h1>
-                <p>Discover trending products and special offers across electronics, fashion, home and more.</p><a
-                    href="#products">SHOP NOW →</a>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container hero-container">
+
+            <div class="hero-content">
+
+                <span class="small-title">
+                    VSKART BIG SAVINGS
+                </span>
+
+                <h1>
+                    Everything you need.
+                    <span>One smart cart.</span>
+                </h1>
+
+                <p>
+                    Discover trending products and special offers
+                    across electronics, fashion, home and more.
+                </p>
+
+                <a href="#products" class="main-btn">
+                    SHOP NOW →
+                </a>
+
+
+                <div class="hero-features">
+
+                    <div>
+                        <strong>🛍️ UP TO 60% OFF</strong>
+                        <span>Flash Deals</span>
+                    </div>
+
+                    <div>
+                        <strong>🚚 Free Delivery</strong>
+                        <span>On selected products</span>
+                    </div>
+
+                    <div>
+                        <strong>🔒 Secure Payments</strong>
+                        <span>Safe checkout</span>
+                    </div>
+
+                    <div>
+                        <strong>↩ Easy Returns</strong>
+                        <span>Simple returns</span>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="hero-art">🛍️<span>UP TO<br><b>60% OFF</b></span></div>
-        </section>
-        <section class="strip"><b>⚡ Flash Deals</b><span>Free delivery on selected products</span><span>Secure
-                payments</span><span>Easy returns</span></section>
-        <section id="products">
-            <div class="heading">
-                <div>
-                    <p>TOP PICKS</p>
-                    <h2>Best Deals For You</h2>
-                </div><button onclick="showAll()">View All</button>
+
+
+            <div class="hero-card">
+
+                <div class="sale-circle">
+                    <span>MEGA</span>
+                    <strong>SALE</strong>
+                    <small>UP TO 60% OFF</small>
+                </div>
+
+                <div class="floating-card card-one">
+                    📱
+                    <span>Smartphones</span>
+                </div>
+
+                <div class="floating-card card-two">
+                    💻
+                    <span>Laptops</span>
+                </div>
+
+                <div class="floating-card card-three">
+                    🎧
+                    <span>Accessories</span>
+                </div>
+
             </div>
-            <div class="grid" id="grid"></div>
-        </section>
-        <section class="promo">
-            <div><small>NEW SEASON</small>
-                <h2>Upgrade your style.</h2>
-                <p>Fresh fashion, smarter prices.</p><button>Explore Fashion</button>
-            </div>
-            <div>👟 👕 🎒</div>
-        </section>
-    </main>
-    <footer>
-        <div>
-            <h2>VS<span>KART</span></h2>
-            <p>Your everyday online shopping destination.</p>
+
         </div>
-        <div><b>ABOUT</b><a>Contact Us</a><a>About Us</a><a>Careers</a></div>
-        <div><b>HELP</b><a>Payments</a><a>Shipping</a><a>Returns</a></div>
-        <div><b>POLICY</b><a>Terms</a><a>Privacy</a><a>Security</a></div>
-        <p class="copy">© 2026 VSKART. All rights reserved.</p>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="container feature-grid">
+
+            <div class="feature">
+                <div>🚚</div>
+                <h3>Free Delivery</h3>
+                <p>On selected orders</p>
+            </div>
+
+            <div class="feature">
+                <div>💳</div>
+                <h3>Secure Payment</h3>
+                <p>100% secure checkout</p>
+            </div>
+
+            <div class="feature">
+                <div>↩️</div>
+                <h3>Easy Returns</h3>
+                <p>Simple return policy</p>
+            </div>
+
+            <div class="feature">
+                <div>🎧</div>
+                <h3>24/7 Support</h3>
+                <p>We're here to help</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section" id="products">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span>TOP PICKS</span>
+                    <h2>Best Deals For You</h2>
+                </div>
+
+                <button onclick="showAllProducts()">
+                    View All
+                </button>
+
+            </div>
+
+
+            <div class="product-grid" id="productGrid">
+
+
+                <!-- PRODUCT 1 -->
+
+                <div class="product-card"
+                     data-name="smartphone mobile">
+
+                    <div class="discount">
+                        -20%
+                    </div>
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            MOBILE
+                        </span>
+
+                        <h3>
+                            VSKART SmartPhone Pro
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(240)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹19,999
+                            </strong>
+
+                            <del>
+                                ₹24,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('SmartPhone Pro')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+
+                <div class="product-card"
+                     data-name="laptop computer electronics">
+
+                    <div class="discount">
+                        -15%
+                    </div>
+
+                    <div class="product-image">
+                        💻
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            ELECTRONICS
+                        </span>
+
+                        <h3>
+                            UltraBook Laptop
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(189)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹49,999
+                            </strong>
+
+                            <del>
+                                ₹58,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('UltraBook Laptop')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+
+                <div class="product-card"
+                     data-name="headphones accessories">
+
+                    <div class="discount">
+                        -35%
+                    </div>
+
+                    <div class="product-image">
+                        🎧
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            ACCESSORIES
+                        </span>
+
+                        <h3>
+                            Wireless Headphones
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(325)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹1,999
+                            </strong>
+
+                            <del>
+                                ₹2,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Wireless Headphones')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+
+                <div class="product-card"
+                     data-name="smart watch electronics">
+
+                    <div class="discount">
+                        -25%
+                    </div>
+
+                    <div class="product-image">
+                        ⌚
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            ELECTRONICS
+                        </span>
+
+                        <h3>
+                            Smart Watch
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(150)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹2,499
+                            </strong>
+
+                            <del>
+                                ₹3,299
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Smart Watch')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 5 -->
+
+                <div class="product-card"
+                     data-name="camera electronics">
+
+                    <div class="discount">
+                        -18%
+                    </div>
+
+                    <div class="product-image">
+                        📷
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            CAMERA
+                        </span>
+
+                        <h3>
+                            Digital Camera
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(95)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹32,999
+                            </strong>
+
+                            <del>
+                                ₹39,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Digital Camera')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 6 -->
+
+                <div class="product-card"
+                     data-name="speaker bluetooth electronics">
+
+                    <div class="discount">
+                        -30%
+                    </div>
+
+                    <div class="product-image">
+                        🔊
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            AUDIO
+                        </span>
+
+                        <h3>
+                            Bluetooth Speaker
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(210)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹1,499
+                            </strong>
+
+                            <del>
+                                ₹2,199
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Bluetooth Speaker')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 7 -->
+
+                <div class="product-card"
+                     data-name="shoes fashion">
+
+                    <div class="discount">
+                        -40%
+                    </div>
+
+                    <div class="product-image">
+                        👟
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            FASHION
+                        </span>
+
+                        <h3>
+                            Sports Shoes
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(170)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹1,799
+                            </strong>
+
+                            <del>
+                                ₹2,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Sports Shoes')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 8 -->
+
+                <div class="product-card"
+                     data-name="gaming keyboard accessories">
+
+                    <div class="discount">
+                        -22%
+                    </div>
+
+                    <div class="product-image">
+                        ⌨️
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="category">
+                            GAMING
+                        </span>
+
+                        <h3>
+                            Gaming Keyboard
+                        </h3>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(280)</span>
+                        </div>
+
+                        <div class="price">
+
+                            <strong>
+                                ₹2,299
+                            </strong>
+
+                            <del>
+                                ₹2,999
+                            </del>
+
+                        </div>
+
+                        <button onclick="addToCart('Gaming Keyboard')">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+
+    <section class="promo">
+
+        <div class="container promo-grid">
+
+            <div class="promo-card">
+
+                <div>
+
+                    <span>NEW ARRIVALS</span>
+
+                    <h2>
+                        Upgrade Your Tech
+                    </h2>
+
+                    <p>
+                        Explore the latest electronics
+                        at amazing prices.
+                    </p>
+
+                    <a href="#products">
+                        Explore →
+                    </a>
+
+                </div>
+
+                <div class="promo-icon">
+                    💻
+                </div>
+
+            </div>
+
+
+            <div class="promo-card second">
+
+                <div>
+
+                    <span>FASHION SALE</span>
+
+                    <h2>
+                        Style For Less
+                    </h2>
+
+                    <p>
+                        Trending fashion with
+                        special discounts.
+                    </p>
+
+                    <a href="#products">
+                        Shop Fashion →
+                    </a>
+
+                </div>
+
+                <div class="promo-icon">
+                    👕
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter">
+
+        <div class="container newsletter-content">
+
+            <div>
+                <h2>
+                    Get the best deals in your inbox.
+                </h2>
+
+                <p>
+                    Subscribe for offers, product launches
+                    and special discounts.
+                </p>
+            </div>
+
+            <div class="newsletter-form">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                >
+
+                <button onclick="subscribe()">
+                    Subscribe
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <h2 class="footer-logo">
+                    VSKART
+                </h2>
+
+                <p>
+                    Your destination for electronics,
+                    fashion, home products and more.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Shop</h3>
+
+                <a href="#">Mobiles</a>
+                <a href="#">Electronics</a>
+                <a href="#">Fashion</a>
+                <a href="#">Home</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Help</h3>
+
+                <a href="#">Customer Support</a>
+                <a href="#">Orders</a>
+                <a href="#">Returns</a>
+                <a href="#">Payments</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Company</h3>
+
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 VSKART.
+            Shop Smart. Live Better.
+
+        </div>
+
     </footer>
-    <div class="toast" id="toast">Added to cart ✓</div>
-    <script src="js/script.js"></script>
+
+
+    <!-- TOAST -->
+
+    <div id="toast" class="toast">
+        Product added to cart
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="./js/script.js"></script>
+
 </body>
 
 </html>
