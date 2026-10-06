@@ -1,105 +1,147 @@
 const products = [
-    ['Smartphone 5G', '📱', 18999, 24999, 24],
-    ['Wireless Headphones', '🎧', 1499, 2999, 50],
-    ['Smart Watch Pro', '⌚', 2299, 4999, 54],
-    ['Laptop Backpack', '🎒', 799, 1599, 50],
-    ['Running Shoes', '👟', 1299, 2499, 48],
-    ['Men’s Casual Shirt', '👕', 699, 1399, 50],
-    ['Bluetooth Speaker', '🔊', 999, 1999, 50],
-    ['Gaming Laptop', '💻', 57999, 69999, 17]
+    {
+        name: "Smartphone 5G",
+        image: "images/smartphone.jpg",
+        price: 18999,
+        oldPrice: 24999,
+        discount: 24
+    },
+    {
+        name: "Wireless Headphones",
+        image: "images/headphones.jpg",
+        price: 1499,
+        oldPrice: 2999,
+        discount: 50
+    },
+    {
+        name: "Smart Watch Pro",
+        image: "images/smartwatch.jpg",
+        price: 2299,
+        oldPrice: 4999,
+        discount: 54
+    },
+    {
+        name: "Laptop Backpack",
+        image: "images/backpack.jpg",
+        price: 799,
+        oldPrice: 1599,
+        discount: 50
+    },
+    {
+        name: "Running Shoes",
+        image: "images/shoes.jpg",
+        price: 1299,
+        oldPrice: 2499,
+        discount: 48
+    },
+    {
+        name: "Men's Casual Shirt",
+        image: "images/shirt.jpg",
+        price: 699,
+        oldPrice: 1399,
+        discount: 50
+    },
+    {
+        name: "Bluetooth Speaker",
+        image: "images/speaker.jpg",
+        price: 999,
+        oldPrice: 1999,
+        discount: 50
+    },
+    {
+        name: "Gaming Laptop",
+        image: "images/laptop.jpg",
+        price: 57999,
+        oldPrice: 69999,
+        discount: 17
+    }
 ];
 
 let cart = 0;
 
-const grid = document.getElementById('grid');
+const grid = document.getElementById("grid");
 
-
-// ================================
 // DISPLAY PRODUCTS
-// ================================
-
 function render(items) {
 
     grid.innerHTML = items.map(product => `
 
         <article class="card">
 
-            <div class="pic">
+            <div class="product-image">
 
                 <span class="discount">
-                    ${product[4]}% OFF
+                    ${product.discount}% OFF
                 </span>
 
-                ${product[1]}
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
 
             </div>
 
-            <h3>
-                ${product[0]}
-            </h3>
+            <h3>${product.name}</h3>
 
             <div class="rating">
-                ⭐ 4.${Math.floor(Math.random() * 8) + 1}
-                • VSKART Assured
+                ⭐ 4.5 • VSKART Assured
             </div>
 
             <div class="price">
 
-                ₹${product[2].toLocaleString('en-IN')}
+                ₹${product.price.toLocaleString("en-IN")}
 
                 <del>
-                    ₹${product[3].toLocaleString('en-IN')}
+                    ₹${product.oldPrice.toLocaleString("en-IN")}
                 </del>
 
             </div>
 
-            <button onclick="addCart()">
+            <button onclick="addCart('${product.name}')">
                 Add to Cart
             </button>
 
         </article>
 
-    `).join('');
+    `).join("");
 }
 
 
-// ================================
 // ADD TO CART
-// ================================
-
-function addCart() {
+function addCart(productName) {
 
     cart++;
 
-    document.getElementById('count').textContent = cart;
+    document.getElementById("count").textContent = cart;
 
-    const toast = document.getElementById('toast');
+    const toast = document.getElementById("toast");
 
-    toast.classList.add('show');
+    if (toast) {
 
-    setTimeout(() => {
+        toast.textContent =
+            productName + " added to cart!";
 
-        toast.classList.remove('show');
+        toast.classList.add("show");
 
-    }, 1400);
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 1400);
+    }
 }
 
 
-// ================================
 // SEARCH PRODUCTS
-// ================================
-
 function searchProducts() {
 
-    const searchInput =
-        document.getElementById('search');
-
     const query =
-        searchInput.value.toLowerCase();
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase();
 
     const filteredProducts =
         products.filter(product =>
-            product[0]
+            product.name
                 .toLowerCase()
                 .includes(query)
         );
@@ -107,44 +149,33 @@ function searchProducts() {
     render(filteredProducts);
 
     document
-        .getElementById('products')
+        .getElementById("products")
         .scrollIntoView({
-            behavior: 'smooth'
+            behavior: "smooth"
         });
 }
 
 
-// ================================
 // SHOW ALL PRODUCTS
-// ================================
-
 function showAll() {
 
-    document.getElementById('search').value = '';
+    document.getElementById("search").value = "";
 
     render(products);
 }
 
 
-// ================================
 // ENTER KEY SEARCH
-// ================================
-
 document
-    .getElementById('search')
-    .addEventListener('keydown', function (event) {
+    .getElementById("search")
+    .addEventListener("keydown", function(event) {
 
-        if (event.key === 'Enter') {
-
+        if (event.key === "Enter") {
             searchProducts();
-
         }
 
     });
 
 
-// ================================
-// LOAD PRODUCTS
-// ================================
-
+// LOAD ALL PRODUCTS
 render(products);
