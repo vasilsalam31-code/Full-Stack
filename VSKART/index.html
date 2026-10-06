@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VSKART | Online Shopping</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav"><a class="logo" href="#">VS<span>KART</span><small>Shop Smart. Live Better.</small></a>
+            <div class="search"><input id="search" placeholder="Search for products, brands and more"><button
+                    onclick="searchProducts()">Search</button></div>
+            <nav><a href="#">Login</a><a href="#products">Products</a><a href="#">Orders</a><a href="#cart">🛒 Cart <b
+                        id="count">0</b></a></nav>
+        </div>
+    </header>
+    <section class="categories">
+        <div>📱<span>Mobiles</span></div>
+        <div>💻<span>Electronics</span></div>
+        <div>👕<span>Fashion</span></div>
+        <div>🏠<span>Home</span></div>
+        <div>📺<span>Appliances</span></div>
+        <div>⌚<span>Accessories</span></div>
+        <div>🧸<span>Toys</span></div>
+        <div>✈️<span>Travel</span></div>
+    </section>
+    <main>
+        <section class="hero">
+            <div>
+                <p class="tag">VSKART BIG SAVINGS</p>
+                <h1>Everything you need.<br><span>One smart cart.</span></h1>
+                <p>Discover trending products and special offers across electronics, fashion, home and more.</p><a
+                    href="#products">SHOP NOW →</a>
+            </div>
+            <div class="hero-art">🛍️<span>UP TO<br><b>60% OFF</b></span></div>
+        </section>
+        <section class="strip"><b>⚡ Flash Deals</b><span>Free delivery on selected products</span><span>Secure
+                payments</span><span>Easy returns</span></section>
+        <section id="products">
+            <div class="heading">
+                <div>
+                    <p>TOP PICKS</p>
+                    <h2>Best Deals For You</h2>
+                </div><button onclick="showAll()">View All</button>
+            </div>
+            <div class="grid" id="grid"></div>
+        </section>
+        <section class="promo">
+            <div><small>NEW SEASON</small>
+                <h2>Upgrade your style.</h2>
+                <p>Fresh fashion, smarter prices.</p><button>Explore Fashion</button>
+            </div>
+            <div>👟 👕 🎒</div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <h2>VS<span>KART</span></h2>
+            <p>Your everyday online shopping destination.</p>
+        </div>
+        <div><b>ABOUT</b><a>Contact Us</a><a>About Us</a><a>Careers</a></div>
+        <div><b>HELP</b><a>Payments</a><a>Shipping</a><a>Returns</a></div>
+        <div><b>POLICY</b><a>Terms</a><a>Privacy</a><a>Security</a></div>
+        <p class="copy">© 2026 VSKART. All rights reserved.</p>
+    </footer>
+    <div class="toast" id="toast">Added to cart ✓</div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
